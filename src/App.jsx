@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <ItemListContainer />
+      <ItemListContainer greeting="Bienvenidos a Nutrix"/>
       <Footer />
     </>
   )
