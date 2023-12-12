@@ -9,6 +9,9 @@ export default {
       fontFamily: {
         'montserrat': ['Montserrat'],
       },
+      spacing: {
+        '550': '550px',
+      }
     },
     plugins: [],
   }
