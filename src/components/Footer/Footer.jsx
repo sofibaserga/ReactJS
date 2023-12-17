@@ -6,7 +6,7 @@ import WhatsappLogo from '../../assets/img/Footer/whatsapp.svg'
 const Footer = () => {
 
     return (
-        <footer className="bg-slate-100 px-24 py-16 flex flex-row place-content-between items-start">
+        <footer className="bg-verdeNutrix-50 px-24 py-16 flex flex-row place-content-between items-start">
             <div className="flex flex-row">
                 <div className="flex flex-col ">
                     <p className="uppercase text-sm pb-3">Conocénos</p>
