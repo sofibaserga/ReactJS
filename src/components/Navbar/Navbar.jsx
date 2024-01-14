@@ -8,7 +8,7 @@ const Navbar = () => {
 
     return (
         <header>
-            <div className='bg-cremaNutrix border-b flex flex-row place-content-between items-center px-24	py-4'>
+            <div className='bg-cremaNutrix border-b flex flex-row place-content-between items-center px-24 py-4'>
                 <Link to="/">
                     <img className='w-24' src={logo} alt="logo" />
                 </Link>
