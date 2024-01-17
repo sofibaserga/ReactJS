@@ -49,7 +49,7 @@ const ItemListContainer = ({ greeting }) => {
     return (
         <section >
             <Contenedor>
-                <img src="public/Tienda/imagen-portada.png" alt="imagen perro tognis tomando cafe" className="w-24 mb-8"/>
+                <img src="/Tienda/imagen-portada.png" alt="imagen perro tognis tomando cafe" className="w-24 mb-8"/>
                 <p className="uppercase text-sm text-center">{greeting}</p>
                 <h1 className="text-3xl uppercase mt-1 mb-3 text-center text-verdeOscuroTognis">Tienda Togni's cafe</h1>
                 <p className="font-normal text-lg text-center px-80">Nuestra selección de productos. Comprá online y retirá tu producto en nuestro local en 48hs.</p>

@@ -1,6 +1,7 @@
 import NavLink from './NavLink.jsx'
 import CartWidget from './CartWidget.jsx'
 import { Link } from 'react-router-dom'
+import Logo from 'src/assets/img/Navbar/Logo.svg'
 
 
 const Navbar = () => {
@@ -12,7 +13,7 @@ const Navbar = () => {
             </div>
             <div className='bg-cremaTognis border-b border-negroTognis flex flex-row place-content-between items-center px-24 py-4 '>
                 <Link to="/">
-                    <img className='w-40' src="" alt="logo" />
+                    <img className='w-40' src={Logo} alt="logo" />
                 </Link>
                 <nav className='flex gap-10'>
                     <NavLink href={"/"} text={"Todos los productos"} />
