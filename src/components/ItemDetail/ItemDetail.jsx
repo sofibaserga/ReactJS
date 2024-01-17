@@ -1,4 +1,4 @@
-import Boton from "../Boton/boton";
+import Boton from "../Boton/Boton";
 
 
 const ItemDetail = ({ item }) => {
