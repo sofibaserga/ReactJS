@@ -5,8 +5,7 @@ const Boton = ({ children, className = "", onClick }) => {
     return (
         <button
             onClick={onClick}
-            className={`bg-verdeNutrix-100 rounded-full flex items-center py-2 px-4 text-center text-white my-4 ${className}`}
-        >
+            className={`border-solid border border-verdeOscuroTognis rounded-full flex items-center py-1 px-12 text-center tracking-wider text-verdeOscuroTognis my-4 hover:bg-verdeOscuroTognis hover:text-white ${className}`} >
             {children}
         </button>
     );

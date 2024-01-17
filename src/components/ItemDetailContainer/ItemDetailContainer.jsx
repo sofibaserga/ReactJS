@@ -32,13 +32,14 @@ const ItemDetailContainer = () => {
   }, [itemId]);
 
   return (
-    <>
+
+    <section className="bg-verdeOscuroTognis">
       {loading ? (
         <h2 className="text-center text-lg mt-32 mb-60">Cargando...</h2>
       ) : (
         <ItemDetail item={item} />
       )}
-    </>
+    </section>
   );
 };
 

@@ -4,23 +4,24 @@ import Boton from "../Boton/boton";
 const ItemDetail = ({ item }) => {
 
     return (
-        <div className="mx-40 my-20 flex items-center">
+        <div className="py-1 bg-verdeOscuroTognis">
 
-            <div className="flex gap-20 items-center">
-                <img className="w-1/2 h-auto rounded-lg" src={item.interna} alt={item.name} />
+            <div className="mx-40 mt-16 mb-36 flex gap-20 justify-center items-center">
+                <img className="rounded-3xl " src={item.portada} alt={item.name} />
 
-                <div className="w-1/2">
-                    <p className="uppercase text-xs mb-2 bg-verdeNutrix-25 w-fit px-2 py-0.5">{item.etiqueta}</p>
-                    <h3 className="text-4xl font-normal mb-2">{item.name}</h3>
-                    <p className="mb-4 text-2xl">${item.price}</p>
-                    <p className="text-base">{item.description}</p>
+                <div className="w-2/5">
+                    <h3 className="text-2xl mb-2 text-white">{item.name}</h3>
+                    <p className="text-xl font-light text-white mb-4">{item.description}</p>
+                    <p className="text-xl text-verdeClaroTognis mb-8">${item.price}</p>
 
-                    <Boton className="bg-green-400">Agregar al carrito</Boton>
-                    
+                    <div className="border-b border-t border-negroTognis/30">
+                        <Boton className="border-white text-white my-8 hover:bg-white/20">Agregar al carrito</Boton>
+                    </div>
+
                 </div>
             </div>
 
-            
+
         </div>
     );
 };

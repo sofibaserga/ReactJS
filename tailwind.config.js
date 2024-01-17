@@ -13,13 +13,10 @@ export default {
         '550': '550px',
       },
       colors: {
-        verdeNutrix: {
-          25: '#DAEDD9',
-          50: '#B5DBB3',
-          75: '#90C98D',
-          100: '#6BB767',
-        },
-        cremaNutrix: '#FAF9F8'
+        verdeOscuroTognis: '#365F3D',
+        verdeClaroTognis: '#AFC126',
+        cremaTognis: '#F0EEE3',
+        negroTognis: '#202020',
       }
     },
     plugins: [],

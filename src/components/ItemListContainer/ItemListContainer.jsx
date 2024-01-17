@@ -6,6 +6,7 @@ import ItemList from "../ItemList/ItemList"
 import { useParams } from "react-router-dom"
 import { collection, getDocs, query, where } from "firebase/firestore"
 import { db } from "../../firebase/config"
+import Contenedor from "../Contenedor.jsx/Contenedor"
 
 
 const ItemListContainer = ({ greeting }) => {
@@ -46,15 +47,18 @@ const ItemListContainer = ({ greeting }) => {
 
 
     return (
-        <section className="mx-40 py-20">
-            <p className="text-sm text-center">{greeting}</p>
-            <p className="text-sm uppercase mt-1 mb-3 text-center">Conocé nuestros productos</p>
-            <h1 className="text-5xl font-normal text-center px-80">Productos de calidad para una <span className="font-medium">vida saludable</span></h1>
-            {
-                loading
-                    ? <h2 className="text-center text-lg mt-32">Cargando...</h2>
-                    : <ItemList productos={productos} />
-            }
+        <section >
+            <Contenedor>
+                <img src="/src/assets/img/Tienda/imagen-portada.png" alt="imagen perro tognis tomando cafe" className="w-24 mb-8"/>
+                <p className="uppercase text-sm text-center">{greeting}</p>
+                <h1 className="text-3xl uppercase mt-1 mb-3 text-center text-verdeOscuroTognis">Tienda Togni's cafe</h1>
+                <p className="font-normal text-lg text-center px-80">Nuestra selección de productos. Comprá online y retirá tu producto en nuestro local en 48hs.</p>
+                {
+                    loading
+                        ? <h2 className="text-center text-lg mt-32">Cargando...</h2>
+                        : <ItemList productos={productos} />
+                }
+            </Contenedor>
         </section>
     )
 }
