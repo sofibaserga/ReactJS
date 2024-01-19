@@ -15,6 +15,7 @@ export default {
       colors: {
         verdeOscuroTognis: '#365F3D',
         verdeClaroTognis: '#AFC126',
+        verdeMasClaroTognis: '#BFCD51',
         cremaTognis: '#F0EEE3',
         negroTognis: '#202020',
       }

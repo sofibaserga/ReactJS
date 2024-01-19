@@ -1,7 +1,23 @@
 import Boton from "../Boton/Boton";
+import { useContext, useState } from "react";
+import QuantitySelector from "../QuantitySelector/QuantitySelector";
+import { CartContext } from "../../context/CartContext";
+import { Link } from "react-router-dom";
+
 
 
 const ItemDetail = ({ item }) => {
+
+    const [cantidad, setCantidad] = useState(1)
+    const { addToCart, isInCart } = useContext(CartContext)
+
+    const handleAgregar = () => {
+        const itemToCart = {
+            ...item,
+            cantidad
+        }
+        addToCart(itemToCart)
+    }
 
     return (
         <div className="py-1 bg-verdeOscuroTognis">
@@ -14,9 +30,25 @@ const ItemDetail = ({ item }) => {
                     <p className="text-xl font-light text-white mb-4">{item.description}</p>
                     <p className="text-xl text-verdeClaroTognis mb-8">${item.price}</p>
 
-                    <div className="border-b border-t border-negroTognis/30">
-                        <Boton className="border-white text-white my-8 hover:bg-white/20">Agregar al carrito</Boton>
-                    </div>
+                    {
+                        isInCart(item.id)
+                            ? <div className="border-b border-t border-negroTognis/30">
+                                <Boton className="bg-verdeClaroTognis text-white my-8 hover:bg-verdeMasClaroTognis"><Link to="/cart">Terminar mi compra</Link></Boton>
+                            </div>
+                            : <>
+
+                                <QuantitySelector
+                                    cantidad={cantidad}
+                                    stock={item.stock}
+                                    setCantidad={setCantidad}
+                                />
+
+
+                                <div className="border-b border-t border-negroTognis/30">
+                                    <Boton className="bg-verdeClaroTognis text-white my-8 hover:bg-verdeMasClaroTognis" onClick={handleAgregar}>Agregar al carrito</Boton>
+                                </div>
+                            </>
+                    }
 
                 </div>
             </div>
