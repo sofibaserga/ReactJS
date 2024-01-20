@@ -1,8 +1,8 @@
-import Boton from "../Boton/Boton";
 import { useContext, useState } from "react";
 import QuantitySelector from "../QuantitySelector/QuantitySelector";
 import { CartContext } from "../../context/CartContext";
 import { Link } from "react-router-dom";
+import BotonFill from "../Boton/BotonFill";
 
 
 
@@ -33,7 +33,7 @@ const ItemDetail = ({ item }) => {
                     {
                         isInCart(item.id)
                             ? <div className="border-b border-t border-negroTognis/30">
-                                <Boton className="bg-verdeClaroTognis text-white my-8 hover:bg-verdeMasClaroTognis"><Link to="/cart">Terminar mi compra</Link></Boton>
+                                <BotonFill><Link to="/cart">Terminar mi compra</Link></BotonFill>
                             </div>
                             : <>
 
@@ -45,7 +45,7 @@ const ItemDetail = ({ item }) => {
 
 
                                 <div className="border-b border-t border-negroTognis/30">
-                                    <Boton className="bg-verdeClaroTognis text-white my-8 hover:bg-verdeMasClaroTognis" onClick={handleAgregar}>Agregar al carrito</Boton>
+                                    <BotonFill onClick={handleAgregar}>Agregar al carrito</BotonFill>
                                 </div>
                             </>
                     }

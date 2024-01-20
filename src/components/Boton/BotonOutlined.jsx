@@ -1,6 +1,6 @@
 
 
-const Boton = ({ children, className = "", onClick }) => {
+const BotonOutlined = ({ children, className = "", onClick }) => {
 
     return (
         <button
@@ -11,4 +11,4 @@ const Boton = ({ children, className = "", onClick }) => {
     );
 };
 
-export default Boton;
+export default BotonOutlined;

@@ -1,7 +1,9 @@
 import { useContext, useState } from "react";
 import { CartContext } from "../../context/CartContext";
 import { db } from "../../firebase/config";
-import { collection, addDoc, setDoc, doc, updateDoc, getDoc } from "firebase/firestore";
+import { collection, addDoc } from "firebase/firestore";
+import BotonOutlined from "../Boton/BotonOutlined";
+import { Link } from "react-router-dom";
 
 
 const Checkout = () => {
@@ -9,8 +11,9 @@ const Checkout = () => {
 
     const [values, setValues] = useState({
         nombre: "",
-        direccion: "",
+        telefono: "",
         email: "",
+        confirmarEmail: ""
     });
 
     const [orderId, setOrderId] = useState(null);
@@ -25,6 +28,11 @@ const Checkout = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
+        if (values.email !== values.confirmarEmail) {
+            alert("Los correos electrónicos no coinciden");
+            return;
+        }
+
         const orden = {
             cliente: values,
             items: cart,
@@ -33,7 +41,6 @@ const Checkout = () => {
         };
 
         const ordersRef = collection(db, "orders");
-
 
         addDoc(ordersRef, orden).then((doc) => {
             setOrderId(doc.id)
@@ -44,18 +51,20 @@ const Checkout = () => {
 
     };
 
+
     if (orderId) {
         return (
             <div className="container m-auto my-40 flex flex-col items-center">
-                <h2 className="text-3xl mb-4 text-center">Gracias por tu compra</h2>
-                <p>Tu código de orden es: {orderId}</p>
+                <h2 className="text-3xl mb-4 text-center">¡Gracias por tu compra!</h2>
+                <p className="mb-8">Tu número de orden es: {orderId}</p>
+                <BotonOutlined><Link to="/">Volver a inicio</Link></BotonOutlined>
             </div>
         );
     }
 
     return (
         <section className="container m-auto mt-8">
-            <div className="border-b border-verdeOscuroTognis mb-8">
+            <div className="border-b border-verdeOscuroTognis mb-20">
                 <h2 className="text-3xl mb-4 text-center">Checkout</h2>
             </div>
             <div className="flex flex-col items-center mb-40">
@@ -67,29 +76,41 @@ const Checkout = () => {
                     <input
                         className="border py-2 px-4 rounded-full"
                         type="text"
-                        placeholder="Nombre"
+                        placeholder="Nombre*"
                         value={values.nombre}
                         onChange={handleInputChange}
                         name="nombre"
+                        required
                     />
 
                     <input
                         className="border py-2 px-4 rounded-full"
                         type="text"
-                        placeholder="Dirección"
-                        value={values.direccion}
+                        placeholder="Teléfono*"
+                        value={values.telefono}
                         onChange={handleInputChange}
-                        name="direccion"
+                        name="telefono"
+                        required
                     />
                     <input
                         className="border py-2 px-4 rounded-full"
                         type="email"
-                        placeholder="Email"
+                        placeholder="Email*"
                         value={values.email}
                         onChange={handleInputChange}
                         name="email"
+                        required
                     />
-                    <button type="submit" className="border-solid border border-verdeOscuroTognis rounded-full flex items-center justify-center py-1 px-12 text-center tracking-wider text-verdeOscuroTognis my-4 hover:bg-verdeOscuroTognis hover:text-white">
+                    <input
+                        className="border py-2 px-4 rounded-full"
+                        type="email"
+                        placeholder="Confirmar Email*"
+                        value={values.confirmarEmail}
+                        onChange={handleInputChange}
+                        name="confirmarEmail"
+                        required
+                    />
+                    <button type="submit" className="border-solid border bg-verdeClaroTognis border-verdeClaroTognis rounded-full flex justify-center py-1 px-12 text-center tracking-wider text-white my-4 hover:bg-verdeMasClaroTognis hover:text-white">
                         Enviar
                     </button>
                 </form>

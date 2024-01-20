@@ -1,6 +1,6 @@
 
 import { Link } from "react-router-dom";
-import Boton from "../Boton/Boton";
+import BotonOutlined from "../Boton/BotonOutlined";
 
 
 const ItemCard = ({ item }) => {
@@ -14,9 +14,9 @@ const ItemCard = ({ item }) => {
       <h3 className="text-lg mb-1 font-medinoum">{item.name}</h3>
       <p className="w-80 mb-4">{item.description}</p>
       <p className="text-lg text-verdeClaroTognis ">${item.price}</p>
-      <Boton>
+      <BotonOutlined>
         <Link to={`/item/${item.id}`}>Ver más</Link>
-      </Boton>
+      </BotonOutlined>
     </div>
   );
 };

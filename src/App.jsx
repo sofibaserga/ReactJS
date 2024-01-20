@@ -25,7 +25,7 @@ function App() {
           <Route path="/category/:categoryId" element={<ItemListContainer />} />
           <Route path="/item/:itemId" element={<ItemDetailContainer />} />
           <Route path="/cart" element={<CartView />} />
-         /*  <Route path="/checkout" element={<Checkout />} /> */
+          <Route path="/checkout" element={<Checkout />} />
 
           <Route path="/not-found" element={<Notfound />} />
           <Route path="*" element={<Navigate to={"/not-found"} />} />

@@ -1,8 +1,9 @@
 import { useContext } from "react"
 import { CartContext } from "../../context/CartContext"
-import Boton from "../Boton/Boton"
+import BotonOutlined from "../Boton/BotonOutlined"
 import EmptyCart from "../EmptyCart/EmptyCart"
 import { Link } from "react-router-dom"
+import BotonFill from "../Boton/BotonFill"
 
 
 const CartView = () => {
@@ -12,53 +13,49 @@ const CartView = () => {
 
     return (
         <section className="container m-auto mt-8">
-            <div className="border-b border-verdeOscuroTognis mb-8">
+            <div className="border-b border-verdeOscuroTognis mb-20">
                 <h2 className="text-3xl mb-4 text-center">Carrito de compras</h2>
             </div>
-            <div className="mx-20">
-                <ul className="flex items-center border-b border-verdeOscuroTognis/50 py-4 justify-center gap-32 font-medium">
-                    <li>
-                        <p>Nombre</p>
-                    </li>
-                    <li>
-                        <p>Precio unitario</p>
-                    </li>
-                    <li>
-                        <p>Cantidad</p>
-                    </li>
-                    <li>
-                        <p>Precio subtotal</p>
-                    </li>
-                </ul>
-
-
-                <ul className="mb-20">
+            <table className="mt-20 mb-8 table-fixed w-full">
+                <thead>
+                    <tr className="border-b border-verdeOscuroTognis/50">
+                        <th className="font-normal"> </th>
+                        <th className="font-normal"> </th>
+                        <th className="font-normal">Producto</th>
+                        <th className="font-normal">Precio</th>
+                        <th className="font-normal">Cantidad</th>
+                        <th className="font-normal">Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody>
                     {
                         cart.map((item) => (
-                            <li key={item.id} className="flex items-center border-b border-verdeOscuroTognis/50 py-8 justify-between">
-                                <img src={item.portada} alt="Cart img" className="w-32 rounded-3xl" />
+                            <tr key={item.id} className="border-b border-verdeOscuroTognis/50 text-center">
+                                <td className="cursor-pointer text-4xl font-thin" onClick={() => removeItem(item.id)}>
+                                    ×
+                                </td>
+                                <td className="flex items-center justify-center"><img src={item.portada} alt="Cart img" className="w-32  my-4 rounded-3xl" /></td>
+                                <td>{item.name}</td>
+                                <td className="font-semibold text-verdeClaroTognis">$ {item.price}</td>
+                                <td>{item.cantidad}</td>
+                                <td>$ {item.price * item.cantidad}</td>
+                            </tr>
 
-                                <h3>{item.name}</h3>
-                                <p>$ {item.price}</p>
-                                <p>Cantidad: {item.cantidad}</p>
-                                <p>$ {item.price * item.cantidad}</p>
-
-
-                                <Boton onClick={() => removeItem(item.id)}>
-                                    Eliminar
-                                </Boton>
-                            </li>
                         ))
                     }
-                </ul>
-                <div className="flex items-start justify-between gap-10 mb-20">
-                    <Boton onClick={clearCart}>Vaciar carrito</Boton>
-                    <div className="flex flex-col items-end">
-                        <h4 className="text-xl">TOTAL: ${totalCart()}</h4>
-                        <Boton className="border-verdeClaroTognis bg-verdeClaroTognis text-white my-8 hover:bg-verdeMasClaroTognis"><Link to="/checkout">Terminar mi compra</Link></Boton>
-                    </div>
-                </div>
-
+                    <tr>
+                        <th> </th>
+                        <th> </th>
+                        <th> </th>
+                        <th> </th>
+                        <th> </th>
+                        <th className="text-xl font-medium my-4">TOTAL: ${totalCart()}</th>
+                    </tr>
+                </tbody>
+            </table>
+            <div className="flex items-start justify-between mb-20">
+                <BotonOutlined onClick={clearCart}>Vaciar carrito</BotonOutlined>
+                <BotonFill><Link to="/checkout">Terminar mi compra</Link></BotonFill>
             </div>
         </section>
     )
