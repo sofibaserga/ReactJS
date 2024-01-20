@@ -30,6 +30,7 @@ const ItemDetail = ({ item }) => {
                     <p className="text-xl font-light text-white mb-4">{item.description}</p>
                     <p className="text-xl text-verdeClaroTognis mb-8">${item.price}</p>
 
+
                     {
                         isInCart(item.id)
                             ? <div className="border-b border-t border-negroTognis/30">

@@ -6,7 +6,7 @@ import BotonOutlined from "../Boton/BotonOutlined";
 const ItemCard = ({ item }) => {
 
   return (
-    <div className="text-center flex flex-col items-center justify-end	pb-10">
+    <div className="text-center flex flex-col items-center justify-end pb-10">
       <Link to={`/item/${item.id}`} >
         <img src={item.portada} alt={item.name} className="rounded-3xl mb-8 w-80" />
       </Link>
