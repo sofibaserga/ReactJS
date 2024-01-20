@@ -56,7 +56,7 @@ const Checkout = () => {
         return (
             <div className="container m-auto my-40 flex flex-col items-center">
                 <h2 className="text-3xl mb-4 text-center">¡Gracias por tu compra!</h2>
-                <p className="mb-8">Tu número de orden es: {orderId}</p>
+                <p className="mb-8">Tu número de orden es: <span className="font-medium text-verdeClaroTognis">{orderId}</span></p>
                 <BotonOutlined><Link to="/">Volver a inicio</Link></BotonOutlined>
             </div>
         );
